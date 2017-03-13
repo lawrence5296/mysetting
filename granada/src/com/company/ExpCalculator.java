@@ -2,64 +2,53 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.company.LevelTable;
 
 public class ExpCalculator {
-    final static int firstTerm = 6;
-    final static int term = 1;
-    final static List<levelTable> levelTable = new ArrayList<>();
+    final static int firstTerm = 5;
+    final static int maxLevel = 1000;
+    final static int expWeight = 5;
+    private List<LevelTable> levelTable;
 
+    // Construct level table.
     public ExpCalculator() {
-        for (int i = 0; i < 1000; i++) {
-            levelTable.get(i).setLevel(i);
-            levelTable.get(i).setExp(i/2 * (2*firstTerm - (i-1)*term));
+        List<LevelTable> tables = new ArrayList<>();
+        int sum = 0;
+        for (int i = 0; i < maxLevel; i++) {
+            int term = i/expWeight + firstTerm;
+            sum = sum + term;
+            tables.add(i, new LevelTable(i, term,  sum));
         }
+        this.levelTable = tables;
     }
 
-    public static int getCurrentExp(int level) {
-        System.out.println("getCurrentExp input:" + level);
-        return level/2 * (2*firstTerm - (level-1)*term);
+    // Get next Exp from exp sum.
+    public int getNextExp(int exp) {
+        List<Integer> tmp = levelTable.stream()
+                .filter( levelTable1 -> levelTable1.getExpSum() > exp )
+                .map( table -> table.getExp())
+                .collect(Collectors.toList());
+        return tmp.get(0).intValue();
     }
 
-    public static int getNextExp(int level) {
-        System.out.println("getNextExp input:" + level);
-        level++;
-        return level/2 * (2*firstTerm - (level+1)*term);
+    // Get current level from exp sum.
+    public int getLevel(int exp) {
+        List<Integer> tmp = levelTable.stream()
+                .filter( levelTable1 -> levelTable1.getExpSum() > exp)
+                .map( table -> table.getLevel())
+                .collect(Collectors.toList());
+        return tmp.get(0).intValue();
     }
 
-    public static int getLevel(int exp) {
-        System.out.println("getLevel:" + exp);
-        for(int i=0; ; i++) {
-           if(getNextExp(i) >= exp ) {
-               return i-1;
-           }
-        }
-    }
-
-    public static void printLevelTable() {
+    public void printLevelTable() {
         levelTable.forEach((table) -> {
             System.out.println("level:"+table.getLevel());
-            System.out.println("exp  :"+table.getExp());
+            System.out.println("exp:"+table.getExp());
+            System.out.println("expSum  :"+table.getExpSum());
         });
     }
 }
 
-class levelTable {
-    private int level;
-    private int exp;
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
-}

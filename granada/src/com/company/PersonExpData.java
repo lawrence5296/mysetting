@@ -3,12 +3,10 @@ package com.company;
 public class PersonExpData {
     private String name;
     private int exp;
-    private int level;
 
-    public PersonExpData(String name, int exp, int level) {
+    public PersonExpData(String name, int exp) {
         this.name = name;
         this.exp = exp;
-        this.level = level;
     }
 
     public String getName() {
@@ -27,31 +25,11 @@ public class PersonExpData {
         this.exp = exp;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PersonExpData)) return false;
-
-        PersonExpData that = (PersonExpData) o;
-
-        if (getExp() != that.getExp()) return false;
-        if (getLevel() != that.getLevel()) return false;
-        return getName().equals(that.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getName().hashCode();
-        result = 31 * result + getExp();
-        result = 31 * result + getLevel();
-        return result;
+    public String toString() {
+        return "PersonExpData{" +
+                "name='" + name + '\'' +
+                ", exp=" + exp +
+                '}';
     }
 }

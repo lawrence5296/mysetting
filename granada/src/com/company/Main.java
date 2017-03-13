@@ -14,7 +14,10 @@ import com.company.ExpCalculator;
 public class Main {
     public static void main(String args[]) {
         // Initialize current data
-        // List<PersonExpData> personData = initialize();
+        List<PersonExpData> personData = initialize();
+        ExpCalculator expCalculator = new ExpCalculator();
+
+        System.out.println(personData);
 
         // Infinity loop to get redmine data each 30 min.
         try {
@@ -23,14 +26,19 @@ public class Main {
 
 
                 // TODO: Output html.
-                // backup(personData);
+                // TODO: Backup data.
                 // Thread.sleep(60000 * 30);
                 Thread.sleep(10);
-                System.out.println("1:" + ExpCalculator.getNextExp(0));
-                System.out.println("2:" +ExpCalculator.getNextExp(6));
-                System.out.println("3:" +ExpCalculator.getLevel(1));
-                System.out.println("4:" +ExpCalculator.getLevel(2));
-                ExpCalculator.printLevelTable();
+                // System.out.println("1:" + ExpCalculator.getNextExp(0));
+                // System.out.println("2:" +ExpCalculator.getNextExp(6));
+                // System.out.println("3:" +ExpCalculator.getLevel(1));
+                // System.out.println("4:" +ExpCalculator.getLevel(2));
+                expCalculator.printLevelTable();
+                personData.forEach( s -> {
+                    System.out.println(s.getName());
+                    System.out.println(expCalculator.getLevel(s.getExp()));
+                    System.out.println(expCalculator.getNextExp(s.getExp()));
+                });
                 break;
             }
         } catch(InterruptedException e) {
@@ -39,19 +47,20 @@ public class Main {
 
     private static List<PersonExpData> initialize() {
         List<PersonExpData> personData = new ArrayList<>();
-        List<String> data;
+        String tmp[] = new String[2];
         String line;
         StringTokenizer token;
         try {
-            FileReader fr = new FileReader("./test.csv");
+            FileReader fr = new FileReader("./inputData.csv");
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null) { // read csv line to EOF
                 token = new StringTokenizer(line, ",");
+                int count = 0;
                 while (token.hasMoreTokens()) {
-                    System.out.println(token.nextToken());
-
+                    tmp[count] = token.nextToken();
+                    count++;
                 }
-                System.out.println("**********");
+                personData.add(new PersonExpData(tmp[0], Integer.parseInt(tmp[1])));
             }
             br.close();
             fr.close();
@@ -61,8 +70,4 @@ public class Main {
         return personData;
     }
 
-    private static boolean backup(List<PersonExpData> expData) {
-       // TODO: implement writing file to backup
-        return true;
-    }
 }
