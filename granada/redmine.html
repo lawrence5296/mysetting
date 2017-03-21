@@ -1,0 +1,63 @@
+<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+ <head>
+<title>REDMINE EXPERIENCE LIST</title>
+<link rel="stylesheet" href="./redmine.css" type="text/css" />
+<link rel="stylesheet" href="chart.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="https://cdn.rawgit.com/ics-creative/ParticleJS/release/0.1.2/libs/particlejs.min.js"></script>
+<script src="effect.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+</head>
+ <body>
+<h1>REDMINE EXPERIENCE LIST</h1>
+<table class="type12">
+<thead>
+<tr>
+<th scope="cols" class="col01">Workers</th>
+<th scope="cols" class="col02">Level</th>
+<th scope="cols" class="col03">Next Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col01">Takaaki Gonoji</th>
+<td class="col02">Lv.25</th>
+<td class="col03">
+<div class="charts">
+<div class="charts__chart chart--p100 chart--xl chart--default">
+	<div class="charts__chart chart--p75 chart--xl chart--green" data-percent></div>
+</div>
+</div>
+</th>
+</tr>
+<tr>
+<td class="col01">Shunsuke Handa</th>
+<td class="col02">Lv.2</th>
+<td class="col03">
+<div class="charts">
+<div class="charts__chart chart--p100 chart--xl chart--default">
+	<div class="charts__chart chart--p85 chart--xl chart--green" data-percent></div>
+</div>
+</div>
+</th>
+</tr>
+<tr>
+<td class="col01">Madoka Fukushima</th>
+<td class="col04">Lv.255</th>
+<td class="col03">
+<div class="charts">
+<div class="charts__chart chart--p100 chart--xl chart--default">
+	<div class="charts__chart chart--p13 chart--xl chart--green" data-percent></div>
+</div>
+</div>
+</th>
+</tr>
+<canvas class="effect" width="1400" height="1040" id="myCanvas"></canvas>
+</tbody>
+</table>
+<hr />
+<footer>
+</footer>
+</body>
+</html>
