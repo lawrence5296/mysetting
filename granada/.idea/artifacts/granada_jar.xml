@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="granada.jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/granada_jar</output-path>
-    <root id="archive" name="RedmineExpExecutor.jar">
-      <element id="module-output" name="granada" />
-    </root>
-  </artifact>
-</component>
