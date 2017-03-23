@@ -4,6 +4,7 @@ import com.company.PersonExpData;
 import com.company.ExpCalculator;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,6 +59,8 @@ public class CsvUpdater {
             }
             br.close();
             fr.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("File:" + fileName + ".csv is not founded.");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

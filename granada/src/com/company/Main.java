@@ -1,10 +1,21 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 public class Main {
+
     public static void main(String args[]) {
+
+        // Sleep time to update. (default = 60)
+        int SLEEPTIME_IN_MIN = 60;
+
+        // Set sleep time from args[0]
+        if (args.length == 1) {
+            SLEEPTIME_IN_MIN = Integer.parseInt(args[0]);
+        }
+
         List<PersonExpData> personData;
         ExpCalculator expCalculator = new ExpCalculator();
         CsvUpdater csvUpdater = new CsvUpdater(expCalculator);
@@ -16,10 +27,10 @@ public class Main {
                 // Update data
                 personData = csvUpdater.update();
                 // Output data
-                outputHtml.outputHtml(personData, expCalculator);
+                outputHtml.output(personData, expCalculator);
                 // TODO: backup data
-                Thread.sleep(10);
-                break;
+                // Sleep to update each period
+                Thread.sleep(SLEEPTIME_IN_MIN * 1000 * 60);
             }
         } catch (InterruptedException e) {
             System.err.println("Interrupted Exception");
@@ -29,4 +40,5 @@ public class Main {
     private static void backupData() {
        // TODO: implement backup
     }
+
 }

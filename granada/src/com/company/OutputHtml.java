@@ -12,12 +12,12 @@ import com.company.ExpCalculator;
 
 public class OutputHtml {
 
-    public void outputHtml(List<PersonExpData> personData, ExpCalculator expCalculator) {
+    public void output(List<PersonExpData> personData, ExpCalculator expCalculator) {
         try {
             File file = new File("redmine.html");
 
             if (checkBeforeWritefile(file)) {
-                PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+                PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),"Shift-JIS")));
 
                 // Start outputting HTML.
                 pw.println("<html>");
