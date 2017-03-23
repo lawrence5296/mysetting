@@ -22,6 +22,7 @@ public class CsvUpdater {
     }
 
     public List<PersonExpData> update() {
+        System.out.println("Update and calculate...");
         personData.forEach( p -> p.setLevelUp(false));
         readFile("updateData")
                 .forEach( updateData -> {

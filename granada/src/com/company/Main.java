@@ -25,11 +25,13 @@ public class Main {
             // Infinity loop
             while (true) {
                 // Update data
+                System.out.println("##########Update Data###########");
                 personData = csvUpdater.update();
                 // Output data
                 outputHtml.output(personData, expCalculator);
                 // TODO: backup data
                 // Sleep to update each period
+                System.out.println("\nWait for " + SLEEPTIME_IN_MIN + " min...");
                 Thread.sleep(SLEEPTIME_IN_MIN * 1000 * 60);
             }
         } catch (InterruptedException e) {

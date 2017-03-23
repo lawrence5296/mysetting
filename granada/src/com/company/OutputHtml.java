@@ -65,11 +65,11 @@ public class OutputHtml {
                     if (p.isLevelUp()){
                         pw.println("<canvas class=\"effect\" width=\"1400\" height=\"1040\" id=\"myCanvas\"></canvas>");
                     }
-                    System.out.println(p.toString());
-                    System.out.println("level=" + expCalculator.getLevel(p.getExp()));
-                    System.out.println("current=" + expCalculator.getCurrentExp(p.getExp()));
-                    System.out.println("next=" + expCalculator.getNextExp(p.getExp()));
-                    System.out.println("rate=" + Math.round((double)expCalculator.getCurrentExp(p.getExp())/(double)expCalculator.getNextExp(p.getExp())*100.0));
+                    //System.out.println(p.toString());
+                    //System.out.println("level=" + expCalculator.getLevel(p.getExp()));
+                    //System.out.println("current=" + expCalculator.getCurrentExp(p.getExp()));
+                    //System.out.println("next=" + expCalculator.getNextExp(p.getExp()));
+                    //System.out.println("rate=" + Math.round((double)expCalculator.getCurrentExp(p.getExp())/(double)expCalculator.getNextExp(p.getExp())*100.0));
                 });
 
 
@@ -85,7 +85,7 @@ public class OutputHtml {
                 // Outputting HTML finished.
                 pw.close();
 
-                System.out.println("Output finished.");
+                System.out.println("Output finished!!!!!!!");
             } else {
                 System.out.println("Can not write file.");
             }
@@ -97,9 +97,9 @@ public class OutputHtml {
     // Check whether exists redmine.html. If it does not exists, create it.
     private static boolean checkBeforeWritefile(File file) {
         if (file.exists()) {
-            System.out.println("redmine.html exists.");
+            //System.out.println("redmine.html exists.");
             if (file.isFile() && file.canWrite()) {
-                System.out.println("redmine.html can Write");
+                //System.out.println("redmine.html can Write");
                 return true;
             }
         } else {
