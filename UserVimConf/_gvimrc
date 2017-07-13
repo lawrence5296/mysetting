@@ -1,0 +1,6 @@
+set lines=55
+set columns=180
+colorscheme solarized
+set background=dark
+set title
+syntax on
