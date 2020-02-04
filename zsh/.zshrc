@@ -83,6 +83,21 @@ alias gcp='git cherry-pick'
 alias gr='git reset'
 alias grh='git reset --hard'
 
+# docker
+alias d='docker'
+alias db='docker build'
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias di='docker images'
+alias dr='docker run'
+alias dri='docker run -it'
+alias dc='docker-compose'
+alias de='docker exec'
+alias dei='docker exec -it'
+
+# kubenetes
+alias kc='kubectl'
+
 # alternatives
 alias alt='sudo update-alternatives --config'
 
