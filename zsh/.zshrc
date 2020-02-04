@@ -69,6 +69,25 @@ alias la='ls -aG'
 alias ll='ls -lG'
 alias vz='vim ~/.zshrc'
 
+# git
+alias g='git'
+alias gs='git status'
+alias gb='git branch'
+alias gco='git checkout'
+alias gcm='git commit'
+alias gp='git pull'
+alias gd='git diff'
+alias ga='git add'
+alias gcp='git cherry-pick'
+alias gr='git reset'
+alias grh='git reset --hard'
+
+# alternatives
+alias alt='sudo update-alternatives --config'
+
+# kubenetes
+alias kc='kubectl'
+
 # execute ls after cd
 chpwd() { ls -ltrG  }
 
