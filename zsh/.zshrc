@@ -63,11 +63,13 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
-# alias
+# basic alias
 alias ls='ls --color=auto'
 alias la='ls -aG'
 alias ll='ls -lG'
 alias vz='vim ~/.zshrc'
+alias vt='vim ~/.tmux.conf'
+alias rz='source ~/.zshrc && echo "Reload .zshrc !!"'
 
 # git
 alias g='git'
@@ -82,12 +84,15 @@ alias ga='git add'
 alias gcp='git cherry-pick'
 alias gr='git reset'
 alias grh='git reset --hard'
+alias gl='git log --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%c" --graph'
+alias gla='git log --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%c" --graph'
 
 # docker
 alias d='docker'
 alias db='docker build'
 alias dps='docker ps'
-alias dpa='docker ps -a'
+alias dpsa='docker ps -a'
+alias dst='docker stop'
 alias di='docker images'
 alias dr='docker run'
 alias dri='docker run -it'
@@ -128,4 +133,3 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
-# End of lines added by compinstall
