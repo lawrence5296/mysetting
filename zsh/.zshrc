@@ -85,7 +85,7 @@ alias gcp='git cherry-pick'
 alias gr='git reset'
 alias grh='git reset --hard'
 alias gl='git log --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%c" --graph'
-alias gla='git log --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%c" --graph'
+alias gla='git log --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%c" --graph --all'
 
 # docker
 alias d='docker'
